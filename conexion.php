@@ -1,12 +1,14 @@
 <?php
 $host = "localhost";
 $usuario = "root";
-$contraseña = ""; // o "tu_contraseña" si tienes una
+$contraseña = ""; 
 $base_de_datos = "sistema_libros";
 
-$conexion = new mysqli($host, $usuario, $contraseña, $base_de_datos);
-
-if ($conexion->connect_error) {
-    die("Error en la conexión: " . $conexion->connect_error);
+try {
+    $conexion = new PDO("mysql:host=$host;dbname=$base_de_datos;charset=utf8", $usuario, $contraseña);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error en la conexión: " . $e->getMessage());
 }
 ?>
+

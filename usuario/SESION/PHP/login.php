@@ -1,13 +1,13 @@
 <?php
-require_once 'conexion.php';
-require_once 'session.php';
+require_once '../../../conexion.php';
+require_once '../../../session.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     
     try {
-        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE correo = ?");
+        $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE correo = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         

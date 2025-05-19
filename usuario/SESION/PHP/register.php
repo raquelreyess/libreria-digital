@@ -1,6 +1,6 @@
 <?php
-require_once 'conexion.php';
-require_once 'session.php';
+require_once '../../../conexion.php';
+require_once '../../../session.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = trim($_POST['nombre']);
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     try {
-        $stmt = $conn->prepare("SELECT id_usuario FROM usuarios WHERE correo = ?");
+        $stmt = $conexion->prepare("SELECT id_usuario FROM usuarios WHERE correo = ?");
         $stmt->execute([$email]);
         
         if ($stmt->rowCount() > 0) {
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
         
-  $stmt = $conn->prepare("SELECT id_tipo FROM tipos_cliente WHERE nombre_tipo = ?");
+  $stmt = $conexion->prepare("SELECT id_tipo FROM tipos_cliente WHERE nombre_tipo = ?");
         $stmt->execute([$tipo_cuenta]);
         $id_tipo_cliente = $stmt->fetchColumn();
 
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("INSERT INTO usuarios (nombre, contrasena, correo, telefono, id_rol, id_tipo_cliente) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, contrasena, correo, telefono, id_rol, id_tipo_cliente) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->execute([$nombre, $passwordHash, $email, $telefono, 2, $id_tipo_cliente]);
-        $id_usuario = $conn->lastInsertId();
+        $id_usuario = $conexion->lastInsertId();
         
         if ($tipo_cuenta === 'premium' && !empty($_POST['numero_tarjeta'])) {
             $numero_tarjeta = preg_replace('/\s+/', '', $_POST['numero_tarjeta']);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $cvv = $_POST['cvv'];
             
             if (strlen($numero_tarjeta) == 16 && strlen($cvv) == 3) {
-                $stmt = $conn->prepare("INSERT INTO tarjeta (numero, vence, cvv, id_usuario) VALUES (?, ?, ?, ?)");
+                $stmt = $conexion->prepare("INSERT INTO tarjeta (numero, vence, cvv, id_usuario) VALUES (?, ?, ?, ?)");
                 $stmt->execute([$numero_tarjeta, $vencimiento, $cvv, $id_usuario]);
             }
         }
