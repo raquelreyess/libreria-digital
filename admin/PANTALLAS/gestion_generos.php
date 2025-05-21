@@ -27,18 +27,16 @@ $generos = $conexion->query("SELECT * FROM generos ORDER BY id_genero DESC")->fe
 
 <form method="POST" class="mb-3">
   <input type="text" name="nombre_genero" placeholder="Nuevo género" required>
-  <label><input type="checkbox" name="solo_premium"> Solo Premium</label>
   <button type="submit" name="nuevo_genero" class="btn btn-primary">Agregar</button>
 </form>
 
 <table class="table table-bordered">
-  <thead><tr><th>ID</th><th>Nombre</th><th>Premium</th><th>Acciones</th></tr></thead>
+  <thead><tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr></thead>
   <tbody>
     <?php foreach ($generos as $g): ?>
     <tr>
       <td><?= $g->id_genero ?></td>
       <td><?= htmlspecialchars($g->nombre_genero) ?></td>
-      <td><?= $g->solo_premium ? 'Sí' : 'No' ?></td>
       <td><a href="?eliminar=<?= $g->id_genero ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar género?')">Eliminar</a></td>
     </tr>
     <?php endforeach; ?>

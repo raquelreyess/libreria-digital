@@ -10,7 +10,7 @@
 <div id="notification" class="notification-hidden"></div>
     <div class="container" id="login-container">
         <h2>Iniciar Sesión</h2>
-        <form action="PHP/login.php" method="post">
+        <form action="../../procesar_login_usuario.php" method="post">
             <input type="email" name="email" placeholder="Correo Electrónico" required><br><br>
             <input type="password" name="password" placeholder="Contraseña" required><br><br>
             <button type="submit">Iniciar Sesión</button>
@@ -32,8 +32,8 @@
 
             <label>Introducir tarjeta:</label>
             <select id="tipoCuenta" name="tipo_cuenta" onchange="mostrarPago()">
-                <option value="basico">Ahora no</option> 
-                <option value="premium">Registrar</option>
+                <option value="2">Basico</option> 
+                <option value="3">Premium</option>
             </select><br><br>
             <div id="pago" class="hidden">
                 <input type="text" name="numero_tarjeta" placeholder="Número de Tarjeta"><br><br>

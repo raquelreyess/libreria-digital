@@ -21,8 +21,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $datos) {
     $fecha_publicacion = $_POST['fecha_publicacion'] ?? '';
     $portada_url = $_POST['portada_url'] ?? '';
 
-    $update = $conexion->prepare("UPDATE libros SET titulo = ?, autor = ?, descripcion = ?, fecha_publicacion = ?, portada_url = ? WHERE id_libro = ?");
-    $resultado = $update->execute([$titulo, $autor, $descripcion, $fecha_publicacion, $portada_url, $id]);
+$archivo_url = $datos->archivo_url; // Mantener la actual por defecto
+
+if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === 0) {
+    $nombreOriginal = $_FILES['archivo']['name'];
+    $extension = pathinfo($nombreOriginal, PATHINFO_EXTENSION);
+    $nuevoNombre = uniqid() . '_' . basename($nombreOriginal);
+    $carpetaDestino = __DIR__ . '/../../uploads/epubs/';
+    $rutaRelativa = 'uploads/epubs/' . $nuevoNombre;
+    $rutaFinal = $carpetaDestino . $nuevoNombre;
+
+    if (!is_dir($carpetaDestino)) {
+        mkdir($carpetaDestino, 0777, true);
+    }
+
+    if (move_uploaded_file($_FILES['archivo']['tmp_name'], $rutaFinal)) {
+        $archivo_url = $rutaRelativa;
+
+        // (Opcional) eliminar el archivo anterior si existe
+        $archivoAntiguo = __DIR__ . '/../../' . $datos->archivo_url;
+        if (file_exists($archivoAntiguo)) {
+            unlink($archivoAntiguo);
+        }
+    }
+}
+
+
+   $update = $conexion->prepare("UPDATE libros SET titulo = ?, autor = ?, descripcion = ?, fecha_publicacion = ?, portada_url = ?, archivo_url = ? WHERE id_libro = ?");
+$resultado = $update->execute([$titulo, $autor, $descripcion, $fecha_publicacion, $portada_url, $archivo_url, $id]);
 
     if ($resultado) {
         $mensaje = "Cambios guardados correctamente.";
@@ -83,6 +109,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $datos) {
         <?php if (!empty($datos->portada_url)): ?>
             <img src="<?= htmlspecialchars($datos->portada_url) ?>" alt="Portada" style="width:150px; margin-top:10px;"><br>
         <?php endif; ?>
+
+       <label>Archivo EPUB/PDF actual:</label><br>
+<?php if (!empty($datos->archivo_url)): ?>
+    <a href="../../<?= htmlspecialchars($datos->archivo_url) ?>" target="_blank">Ver archivo actual</a><br>
+<?php endif; ?>
+
+<label>Subir nuevo archivo:</label><br>
+<input type="file" name="archivo"><br>
+
 
         <button type="submit" class="btn btn-primary mt-2">Guardar cambios</button>
     </form>

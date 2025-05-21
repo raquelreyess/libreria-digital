@@ -12,16 +12,19 @@
 <header>
     <nav class="navbar">
     <div class="logo">
-        <img src="imagenes/logo.jpg" alt="Logo biblioteca Digital">
+        <img src="../imagenes/logo.jpg" alt="Logo biblioteca Digital">
         Libreria Global-Planes
     </div>
-    <ul class="nav-links">
-        <li><a href="inicio.html">Inicio</a></li>
-        <li><a href="catalogos/catalogo.html">Catalogo</a></li>
-        <li><a href="catalogos/categorias.html">Categorias</a></li>
-        <li><a href="planes.html">Planes</a></li>
-        <li><a href="cuenta.html">Cuenta</a></li>
+      <nav>
+            <ul class="nav-links">
+      <li><a href="inicio.php" class="<?= $current_page == 'gestion_libros.php' ? 'activo' : '' ?>">inicio</a></li>
+            <li><a href="catalogo.php" class="<?= $current_page == 'catalogo.php' ? 'activo' : '' ?>">Catalogo</a></li>
+            <li><a href="categorias.php" class="<?= $current_page == 'categorias.php' ? 'activo' : '' ?>">Categorias</a></li>
+            <li><a href="cuenta.php" class="<?= $current_page == 'cuenta.php' ? 'activo' : '' ?>">Cuenta</a></li>
+            <li><a href="planes.html" class="<?= $current_page == 'planes.php' ? 'activo' : '' ?>">Planes</a></li>
+       <li><a href="../../cerrar_sesion_usuario.php">Cerrar Sesión</a></li>
     </ul>
+        </nav>
 </nav>
 </header>
 

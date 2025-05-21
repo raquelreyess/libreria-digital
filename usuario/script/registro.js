@@ -23,7 +23,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Función para mostrar u ocultar los campos de pago
     window.mostrarPago = function() {
-        if (tipoCuenta.value === 'tarjeta') {
+
+if (tipoCuenta.value === '3') {
+    pagoDiv.classList.remove('hidden');
+    pagoDiv.querySelectorAll('input').forEach(input => {
+        input.required = true;
+    });
+} else {
+    pagoDiv.classList.add('hidden');
+    pagoDiv.querySelectorAll('input').forEach(input => {
+        input.required = false;
+        input.value = '';
+    });
+}
+
+        /*if (tipoCuenta.value === '3') {
             pagoDiv.classList.remove('hidden');
             pagoDiv.querySelectorAll('input').forEach(input => {
                 input.required = true;
@@ -34,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.required = false;
                 input.value = '';
             });
-        }
+        }*/
     };
 
     // Función para resetear los formularios

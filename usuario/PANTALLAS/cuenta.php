@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi cuenta</title>
-<link rel="stylesheet" href="css/general.css">
+<link rel="stylesheet" href="../css/general.css">
 </head>
 
 <body>
@@ -15,11 +15,12 @@
 Mi cuenta
         </div>
     <ul class="nav-links">
-        <li><a href="inicio.html">Inicio</a></li>
-        <li><a href="catalogo.html">Catalogo</a></li>
-        <li><a href="categorias.html">Categorias</a></li>
-        <li><a href="planes.html">Planes</a></li>
-        <li><a href="cuenta.html">Cuenta</a></li>
+      <li><a href="inicio.php" class="<?= $current_page == 'gestion_libros.php' ? 'activo' : '' ?>">inicio</a></li>
+            <li><a href="catalogo.php" class="<?= $current_page == 'catalogo.php' ? 'activo' : '' ?>">Catalogo</a></li>
+            <li><a href="categorias.php" class="<?= $current_page == 'categorias.php' ? 'activo' : '' ?>">Categorias</a></li>
+            <li><a href="cuenta.php" class="<?= $current_page == 'cuenta.php' ? 'activo' : '' ?>">Cuenta</a></li>
+            <li><a href="planes.html" class="<?= $current_page == 'planes.php' ? 'activo' : '' ?>">Planes</a></li>
+       <li><a href="../../cerrar_sesion_usuario.php">Cerrar Sesión</a></li>
     </ul>
 </nav>
 </header>

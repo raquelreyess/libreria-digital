@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inicio</title>
-<link rel="stylesheet" href="../css/general.css">
-</head>
-
-<body>
-<header>
-    <nav class="navbar">
-    <div class="logo">
-        <img src="imagenes/logo.jpg" alt="Logo biblioteca Digital">
-        Libreria Global-Pagina de inicio
-    </div>
-    <ul class="nav-links">
-        <li><a href="inicio.html">Inicio</a></li>
-        <li><a href="catalogo.html">Catalogo</a></li>
-        <li><a href="categorias.html">Categorias</a></li>
-        <li><a href="planes.html">Planes</a></li>
-        <li><a href="cuenta.html">Cuenta</a></li>
-    </ul>
-</nav>
-</header>
+<?php
+require('header.php');
+include "../../conexion.php";
+?>
 
 
-<main>
     <section class="hero">
-        <img src="imagenes/fondos/fondo.jpg" alt="Librería Digital">
+        <img src="../imagenes/fondos/fondo.jpg" alt="Librería Digital">
         <div class="overlay">
             <h1>Descubre Miles de Libros a tu Alcance</h1>
             <p>Tu puerta de entrada al conocimiento y a la cultura. Accesible para todos.
@@ -60,9 +38,9 @@
 <footer>
 <div class="footer-content">
     <div class="footer-links">
-        <a href="atencion_a_cliente.html">Atencion a cliente</a>
+        <a href="atencion_a_cliente.php">Atencion a cliente</a>
         <a href="preguntas_frecuentes.html">Preguntas frecuentes</a>
-        <a href="nosotros.html">Nosotros</a>
+        <a href="nosotros.php">Nosotros</a>
     </div>
     <p class="footer-quote">"Un libro es un sueño que tienes en tus manos." – Neil Gaiman</p>
 </div>
