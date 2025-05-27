@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inicio</title>
-<link rel="stylesheet" href="../css/general.css">
+<?php
+require('header.php');
+require('nav.php');
+include "../../conexion.php";
+?>
 
-</head>
-
-<body>
-<header>
-       <nav>
-            <ul class="nav-links">
-       <li><a href="inicio.php" class="<?= $current_page == 'gestion_libros.php' ? 'activo' : '' ?>">inicio</a></li>
-            <li><a href="catalogo.php" class="<?= $current_page == 'catalogo.php' ? 'activo' : '' ?>">Catalogo</a></li>
-            <li><a href="categorias.php" class="<?= $current_page == 'categorias.php' ? 'activo' : '' ?>">Categorias</a></li>
-            <li><a href="cuenta.php" class="<?= $current_page == 'cuenta.php' ? 'activo' : '' ?>">Cuenta</a></li>
-            <li><a href="planes.html" class="<?= $current_page == 'planes.php' ? 'activo' : '' ?>">Planes</a></li>
-            <li><a href="logout.html" class="<?= $current_page == 'logout.html' ? 'activo' : '' ?>">Cerrar Sesión</a></li>
-    </ul>
-        </nav>
-</header>
-
-
-<main>
     <section class="faq">
             
         <div class="faq-item" onclick="toggleAnswer('answer1')">
@@ -54,9 +34,8 @@
 <footer>
 <div class="footer-content">
     <div class="footer-links">
-        <a href="atencion_a_cliente.html">Atencion a cliente</a>
-        <a href="preguntas_frecuentes.html">Preguntas frecuentes</a>
-        <a href="nosotros.html">Nosotros</a>
+        <a href="preguntas_frecuentes.php">Preguntas frecuentes</a>
+        <a href="nosotros.php">Nosotros</a>
     </div>
     <p class="footer-quote">"Un libro es un sueño que tienes en tus manos." – Neil Gaiman</p>
 </div>

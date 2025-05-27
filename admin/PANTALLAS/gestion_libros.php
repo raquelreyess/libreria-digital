@@ -78,7 +78,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
               <ul>
             <li><a href="gestion_libros.php" class="<?= $current_page == 'gestion_libros.php' ? 'activo' : '' ?>">Gestión de Libros</a></li>
             <li><a href="gestion_usuarios.php" class="<?= $current_page == 'gestion_usuarios.php' ? 'activo' : '' ?>">Usuarios</a></li>
-            <li><a href="servicio_cliente.php" class="<?= $current_page == 'servicio_cliente.php' ? 'activo' : '' ?>">Atención al Cliente</a></li>
             <li><a href="gestion_cruds.php" class="<?= $current_page == 'gestion_cruds.php' ? 'activo' : '' ?>">Administración</a></li>
             <li><a href="reportes.php" class="<?= $current_page == 'reportes.php' ? 'activo' : '' ?>">Reportes</a></li>
           <li><a href="../../cerrar_sesion.php">Cerrar Sesión</a></li>

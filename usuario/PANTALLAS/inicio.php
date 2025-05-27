@@ -1,5 +1,7 @@
 <?php
+$current_page = basename($_SERVER['PHP_SELF']);
 require('header.php');
+require('nav.php');
 include "../../conexion.php";
 ?>
 
@@ -10,7 +12,7 @@ include "../../conexion.php";
             <h1>Descubre Miles de Libros a tu Alcance</h1>
             <p>Tu puerta de entrada al conocimiento y a la cultura. Accesible para todos.
             </p>
-            <a href="iniciodesecion.html" class="btn_s">Suscríbete Ahora</a>
+            <a href="actualizar_perfil.php" class="btn_s">Suscríbete Ahora</a>
         </div>
     </section>
 
@@ -34,17 +36,4 @@ include "../../conexion.php";
 </main>
 
 
-
-<footer>
-<div class="footer-content">
-    <div class="footer-links">
-        <a href="atencion_a_cliente.php">Atencion a cliente</a>
-        <a href="preguntas_frecuentes.html">Preguntas frecuentes</a>
-        <a href="nosotros.php">Nosotros</a>
-    </div>
-    <p class="footer-quote">"Un libro es un sueño que tienes en tus manos." – Neil Gaiman</p>
-</div>
-<p>© 2025 Biblioteca Digital. Todos los derechos reservados.</p>
-</footer>
-</body>
-</html>
+<?php require('footer.php'); ?>

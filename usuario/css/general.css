@@ -8,6 +8,7 @@
 header {
     background-color: #333;
     color: white;
+    padding: 15px 20px;
     text-align: center;
 }
 body {
@@ -40,6 +41,10 @@ body {
     font-size: 1.1em;
 }
 
+nav ul li a.activo {
+    background: #392143;
+    border-radius: 5px;
+}
 /*footer*/
 footer {
     background-color: #333;
@@ -309,35 +314,6 @@ main {
     text-align: center;
 }
 
-/*ATENCION A CLIENTE*/
-.form-section-a {
-    width: 50%;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.info-box {
-    background: #eedaf6;
-    padding: 10px;
-    border-left: 5px solid #c28fd8;
-    margin-bottom: 20px;
-}
-.support-form label {
-    font-weight: bold;
-    display: block;
-    margin-top: 15px;
-}
-.support-form select,
-.support-form input,
-.support-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 /*PREGUNTAS FRECUENTES*/
 .faq {
@@ -367,3 +343,4 @@ main {
 }
 
 
+   
