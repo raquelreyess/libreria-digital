@@ -27,7 +27,7 @@ require_once '../../conexion.php'; ?>
             <li><a href="gestion_usuarios.php" class="<?= $current_page == 'gestion_usuarios.php' ? 'activo' : '' ?>">Usuarios</a></li>
             <li><a href="gestion_cruds.php" class="<?= $current_page == 'gestion_cruds.php' ? 'activo' : '' ?>">Administración</a></li>
             <li><a href="reportes.php" class="<?= $current_page == 'reportes.php' ? 'activo' : '' ?>">Reportes</a></li>
-            <li><a href="logout.php" class="<?= $current_page == 'logout.html' ? 'activo' : '' ?>">Cerrar Sesión</a></li>
+            <li><a href="../../cerrar_sesion.php" class="<?= $current_page == '../../cerrar_sesion.php' ? 'activo' : '' ?>">Cerrar Sesión</a></li>
         </ul>
         </nav>
     </header>

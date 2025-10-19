@@ -10,14 +10,14 @@
                 <div class="cruds">
                     <h3>Autores</h3>
                  
-                    <a href="gestion_autores.php">VER
+                    <a href="gestion_autores.php" class="btn">VER
                     </a>
                 </div>
 
                 <div class="cruds">
                     <h3>Generos</h3>
                    
-                    <a href="gestion_generos.php">VER
+                    <a href="gestion_generos.php" class="btn ">VER
                     </a>
                 </div>
 

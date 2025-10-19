@@ -36,6 +36,8 @@ if (isset($_POST['generos']) && is_array($_POST['generos'])) {
         <input type="text" id="portada_url" name="portada_url" placeholder="https://..."><br><br>
 
         <label>Géneros:</label><br>
+      
+          <label>Géneros:</label><br>
         <?php foreach ($generos as $genero): ?>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" name="generos[]" value="<?= $genero['id_genero'] ?>">
